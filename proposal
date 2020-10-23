@@ -1,0 +1,20 @@
+Classifying light curves from variable sources
+
+Dataset
+
+The dataset I propose to use is a subset of the Sloan Digital Sky Survey Stripe 82 Variable Source Catalog: http://faculty.washington.edu/ivezic/sdss/catalogs/S82variables.html. The catalog contains the observations of the amount of light that came from 67,506 stars and other space objects (primarily the jets of black holes) over a 5-year period from 2000-2005. This type of time-series photometric data is referred to as a light curve, as the plot of the data shows how the light changes over time. For objects in this catalog, the observed brightness of these sources changed over the 5-year period, many with a regular pattern. The causes of changing brightness are all physical and thus can tell astronomers much about the object that is emitting light. Common causes of variable sources are eclipsing binary stars, astroseismic activity of large stars, transiting exoplanets, and rotating black holes. Each of these natural phenomena leave their own unique signature in an object’s light curve. Previous studies (found at the link above) have identified the types of objects producing 3,657 of the light curves in this catalog as eclipsing binary stars (broken up into 4 subtypes of eclipses), three types of variable star (RR Lyrae, Delta Scuti, and Cepheid Variables, each with 3 subtypes), and quasi-stellar objects (black holes). The goal of this project is to classify the type of object emitting light based on the features of its light curve.
+
+I will be using these 14 categories as labels and the characteristics of the light curves as features. This requires some preprocessing. I will be using the Feature Analysis for Time Series package (FATS, https://arxiv.org/pdf/1506.00010.pdf) to extract feature from the light curves and published code to create training sets out of this data (https://github.com/juramaga/stripe82-class). FATS analyzes light curves to create a set of 62 features. As such, the dimensionality of my data is 3,657 by 62. The full list of features can be found here (http://isadoranun.github.io/tsfeat/FeaturesDocumentation.html), but they broadly fall into a few categories: photometric information (e.g., magnitude, color), general characteristics of the light curve (e.g., period, amplitude, harmonics), and shape of the light curve (e.g., fits to various functions (like a sin wave), width, flux at various parts of the period, skew, kurtosis). I don’t expect all of these features will be significant, so I will focus primarily on the factors that most identify objects, such as the color, period, shape of the curve, and amplitude of changes. 
+
+Algorithms
+
+Due to the large number of possible features, I plan to conduct a LASSO regression first to highlight important features. I also plan to implement a k-nearest neighbors algorithm, using both the features found using LASSO regression and features that are used in scientific analyses of these curves (if there are differences between these feature sets). I also plan to implement a neural network. Although I plan to use the features as extracted by FATS, because each light curve is a set of periodic data, I may also fold, normalize, and bin the data to apply a neural network directly to light curves, much like a neural network could be used to identify hand-written numbers. For evaluating each algorithm, I will be doing a cross-validation by holding out a subset of the data. As there are a few rarer objects, I will probably do a 4-fold validation test to make sure every object type is captured. I will compare algorithms based on the error rate on testing data.
+
+Project Timeline:
+
+10/22/20: Submit Proposal
+11/1/20: Finish preprocessing
+11/7/20: Implement and complete LASSO analysis
+11/17/20: Implement and complete k-nearest neighbors; turn in first update
+12/1/20: Implement neural net and turn in second update
+12/12/20: Write up project and turn it in
