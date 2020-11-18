@@ -1,0 +1,28 @@
+Project update 1
+Evan Linck
+
+So far, I have been able to extract the feature set I will be using for this project. This process took longer than I had hoped, even with using external packages. Essentially, the process took observations of an object over time and found the period that best fit repetitions in the amount of light that was reaching us. This figure shows the light curve of one object in five different observation bands: https://github.com/evanlinck/ece532/blob/main/foldeddata.png
+
+I had to adjust the raw data to be able to use it with the FATS package that was able to extract a number of features from each light curve, such as amplitude, widths of peaks, fits to various periodic equations (e.g. sine waves) using Lomb–Scargle fitting, etc. All told, I was able to get 64 different features for 3,001 objects. The full feature data can be found here: https://github.com/evanlinck/ece532/blob/main/allfeatures.csv 
+
+One issue I have run into is that of these 3,001 objects, 2,528 all have the same label. I may downselect these objects to ~500 with the lowest errors, just so the dataset is a bit more balanced. This would leave me with ~1,000 objects. I also plan to combine a few of the labels of subsets of the same category, which should have similar features in their light curves.
+
+I have started working on my LASSO regression, but have not completed it yet. 
+
+Due to these issues, my timeline has changed. 
+
+
+New Project Timeline:
+
+10/22/20: Submit Proposal
+
+11/17/20: Finish preprocessing
+
+11/22/20: Implement and complete LASSO analysis
+
+11/28/20: Implement and complete k-nearest neighbors; turn in first update
+
+12/1/20: Implement neural net and turn in second update
+
+12/12/20: Write up project and turn it in
+
