@@ -1,0 +1,14 @@
+Project Update 2
+Evan Linck
+
+Since the last project update, I haven’t accomplished much for this project. Around the time I turned in the last project update, I found out that an astronomy research proposal I was leading was awarded five extra nights of telescope time over Thanksgiving (Nov 25-29) in addition to the nights we had the weekend of Nov 20. As such, all of my time outside of what I spent with my family for Thanksgiving was spent doing research, as a lot of prep work needed to be done at the last minute. I certainly recognize the position that it leaves me in for this project, but as a PhD student, I need to make tradeoffs between research and classes at times.
+
+For this project, I have started implementing LASSO. Currently, I have a basic code that works, but have been chasing bugs in the formatting of my data, so haven’t been able to test it on the full dataset. I have also been able to build code that separates out data for cross-validation. 
+
+With current progress in mind and while trying to balance other class projects, TA-ing, and research, my schedule for the remainder of the semester:
+
+12/4: Complete LASSO Regression
+12/8: Complete k-nearest neighbors
+12/11: Complete neural net analysis
+12/12: Finish report and turn in project
+12/17: Turn in two peer review reports
